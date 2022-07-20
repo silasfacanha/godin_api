@@ -54,6 +54,24 @@ app.get("/marketingQuote", (req, res) => {
   res.send(randomMarketingQuote);
 });
 
+app.get("/workQuote", (req, res) => {
+  const randomIndex = getRandom(workQuotes.length);
+  const randomworkQuote = workQuotes[randomIndex];
+  res.send(randomworkQuote);
+});
+
+app.get("/ideasQuote", (req, res) => {
+  const randomIndex = getRandom(ideasQuotes.length);
+  const randomIdeasQuote = ideasQuotes[randomIndex];
+  res.send(randomIdeasQuote);
+});
+
+app.get("/lifeQuote", (req, res) => {
+  const randomIndex = getRandom(lifeQuotes.length);
+  const randomLifeQuote = lifeQuotes[randomIndex];
+  res.send(randomLifeQuote);
+});
+
 app.listen(port, () => {
   console.log(quotesJSONArray, port);
 });
