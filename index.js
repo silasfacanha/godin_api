@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.port || 5050;
 const quotesJSONArray = require("./quotesSource.json");
 function getRandom(size) {
   return Math.floor(Math.random() * size);
 }
+
 app.get("/randomQuote", (req, res) => {
   const randomIndex = getRandom(quotesJSONArray.length);
   const randomQuote = quotesJSONArray[randomIndex];
@@ -73,5 +74,5 @@ app.get("/lifeQuote", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(quotesJSONArray, port);
+  console.log("This API is at localhost:", port);
 });
