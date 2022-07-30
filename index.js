@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.port || 5050;
+const port = process.env.PORT || 3000;
 const quotesJSONArray = require("./quotesSource.json");
 function getRandom(size) {
   return Math.floor(Math.random() * size);
