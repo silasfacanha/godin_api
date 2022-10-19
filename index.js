@@ -2,6 +2,11 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const quotesJSONArray = require("./quotesSource.json");
+
+const cors = require("cors");
+
+app.use(cors({ origin: "http://localhost:3000" }));
+
 function getRandom(size) {
   return Math.floor(Math.random() * size);
 }
