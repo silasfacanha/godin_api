@@ -5,7 +5,7 @@ const quotesJSONArray = require("./quotesSource.json");
 
 const cors = require("cors");
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 
 function getRandom(size) {
   return Math.floor(Math.random() * size);
