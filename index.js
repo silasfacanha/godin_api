@@ -5,16 +5,11 @@ const quotesJSONArray = require("./quotesSource.json");
 
 const cors = require("cors");
 
-app.use(cors());
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "localhost:3000");
-  res.setHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS");
-  if (req.method == "OPTIONS") {
-    return res.sendStatus(200);
-  }
-  next();
-});
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 function getRandom(size) {
   return Math.floor(Math.random() * size);
