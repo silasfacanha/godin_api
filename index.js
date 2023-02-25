@@ -1,11 +1,20 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 const quotesJSONArray = require("./quotesSource.json");
 
 const cors = require("cors");
 
 app.use(cors());
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin");
+  res.setHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS");
+  if (req.method == "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
 
 function getRandom(size) {
   return Math.floor(Math.random() * size);
